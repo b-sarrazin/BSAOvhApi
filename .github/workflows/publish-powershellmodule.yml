@@ -19,4 +19,4 @@ jobs:
         run: |
           Get-PackageProvider | Where-Object Name -eq 'nuget' | Install-PackageProvider -Force
           Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-          Publish-Module -Path "./$($env:GITHUB_REPOSITORY.Split('/')[1])" -NuGetApiKey $env:NUGET_KEY -Verbose
+          Publish-Module -Path .\ -NuGetApiKey $env:NUGET_KEY -Verbose
