@@ -17,5 +17,6 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_KEY }}
         shell: pwsh
         run: |
-          ./build.ps1 -Path /tmp/samplemodule
-          Publish-Module -Path /tmp/samplemodule -NuGetApiKey $env:NUGET_KEY -Verbose
+          Install-PackageProvider -Name NuGet -force | Out-Null
+          Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+          Publish-Module -Path "./$($env:GITHUB_REPOSITORY.Split('/')[1])" -NuGetApiKey $env:NUGET_KEY -Verbose
