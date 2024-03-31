@@ -1,26 +1,51 @@
-﻿<#	
-	.NOTES
-	===========================================================================
-	 Created on:   	31/05/2021 16:46
-	 Created by:   	Brice SARRAZIN
-	 Organization: 	
-	 Filename:     	Remove-BSAOvhSms.ps1
-	===========================================================================
+﻿<#
 	.DESCRIPTION
 		Remove sent SMS from the OVH API.
+
+	.PARAMETER ApplicationKey
+		The application key for accessing the OVH API.
+
+	.PARAMETER ApplicationSecret
+		The application secret for accessing the OVH API.
+
+	.PARAMETER ConsumerKey
+		The consumer key for accessing the OVH API.
+
+	.PARAMETER ServiceName
+		The name of the service associated with the SMS.
+
+	.PARAMETER SmsId
+		Optional. An array of SMS identifiers to remove. Leave empty to remove all SMS.
+
+	.EXAMPLE
+		Remove-BSAOvhSms -ApplicationKey 'your_app_key' -ApplicationSecret 'your_app_secret' -ConsumerKey 'your_consumer_key' -ServiceName 'your_service_name' -SmsId 1234
+
+	.EXAMPLE
+		Remove-BSAOvhSms -ApplicationKey 'your_app_key' -ApplicationSecret 'your_app_secret' -ConsumerKey 'your_consumer_key' -ServiceName 'your_service_name'
+
+	.NOTES
+		Created on:   	31/05/2021
+	 	Created by:   	Brice SARRAZIN
+	 	Filename:     	Remove-BSAOvhSms.ps1		
 #>
 
 function Remove-BSAOvhSms {
 	[CmdletBinding()]
 	param (
-		[Parameter(Mandatory = $true)]
+		[Parameter(Mandatory = $true,
+			HelpMessage = 'Application key.')]
 		[string]$ApplicationKey,
-		[Parameter(Mandatory = $true)]
+		[Parameter(Mandatory = $true,
+			HelpMessage = 'Application secret.')]
 		[string]$ApplicationSecret,
-		[Parameter(Mandatory = $true)]
+		[Parameter(Mandatory = $true,
+			HelpMessage = 'Consumer key.')]
 		[string]$ConsumerKey,
-		[Parameter(Mandatory = $true)]
+		[Parameter(Mandatory = $true,
+			HelpMessage = 'Service name.')]
 		[string]$ServiceName,
+		[Parameter(Mandatory = $false,
+			HelpMessage = 'SMS identifiers to remove. Leave empty to remove all SMS.')]
 		[int[]]$SmsId
 	)
 
@@ -62,7 +87,7 @@ function Remove-BSAOvhSms {
 
 		return $true
 	}
- catch {
+	catch {
 		Write-Error $_
 	}
 }

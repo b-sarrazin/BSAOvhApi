@@ -1,31 +1,66 @@
 ﻿<#	
-	.NOTES
-	===========================================================================
-	 Created on:   	31/05/2021 16:42
-	 Created by:   	Brice SARRAZIN
-	 Organization: 	
-	 Filename:     	Invoke-BSAOvhApiRequest.ps1
-	===========================================================================
 	.DESCRIPTION
 		Invoke an OVH API request.
+
+	.PARAMETER ApplicationKey
+		The application key required for authentication.
+
+	.PARAMETER ApplicationSecret
+		The application secret required for authentication.
+
+	.PARAMETER ConsumerKey
+		The consumer key required for authentication.
+
+	.PARAMETER Url
+		The URL of the OVH API. Default value is 'https://eu.api.ovh.com/1.0'.
+
+	.PARAMETER Path
+		The path of the OVH API. Example: '/sms/ServiceName/batches'.
+
+	.PARAMETER Method
+		The HTTP method to be used. Valid values are 'DELETE', 'GET', 'POST', 'PUT'.
+
+	.PARAMETER Body
+		The body of the request.
+
+	.EXAMPLE
+		Invoke-BSAOvhApiRequest -ApplicationKey 'your_app_key' -ApplicationSecret 'your_app_secret' -ConsumerKey 'your_consumer_key' -Path '/sms/$ServiceName/batches' -Method 'GET'
+
+		This example demonstrates how to invoke an OVH API request using the 'GET' method.
+
+	.NOTES
+		Created on:   	31/05/2021
+		Created by:   	Brice SARRAZIN
+		Filename:     	Invoke-BSAOvhApiRequest.ps1
+
+		For more information about the OVH API, refer to the official documentation at https://docs.ovh.com/.
 #>
 
 function Invoke-BSAOvhApiRequest {
 	[CmdletBinding()]
 	param
 	(
-		[Parameter(Mandatory = $true)]
+		[Parameter(Mandatory = $true,
+			HelpMessage = 'Application key.')]
 		[string]$ApplicationKey,
-		[Parameter(Mandatory = $true)]
+		[Parameter(Mandatory = $true,
+			HelpMessage = 'Application secret.')]
 		[string]$ApplicationSecret,
-		[Parameter(Mandatory = $true)]
+		[Parameter(Mandatory = $true,
+			HelpMessage = 'Consumer key.')]
 		[string]$ConsumerKey,
+		[Parameter(Mandatory = $false,
+			HelpMessage = 'URL of the OVH API. Default: https://eu.api.ovh.com/1.0')]
 		[string]$Url = 'https://eu.api.ovh.com/1.0',
-		[Parameter(Mandatory = $true)]
+		[Parameter(Mandatory = $true,
+			HelpMessage = 'Path of the OVH API. Example: /sms/$ServiceName/batches')]
 		[string]$Path,
+		[Parameter(Mandatory = $true,
+			HelpMessage = 'HTTP method.')]
 		[ValidateSet('DELETE', 'GET', 'POST', 'PUT')]
-		[Parameter(Mandatory = $true)]
 		[string]$Method,
+		[Parameter(Mandatory = $false,
+			HelpMessage = 'Body of the request.')]
 		[hashtable]$Body
 	)
 	
