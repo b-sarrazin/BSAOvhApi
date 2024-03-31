@@ -17,6 +17,6 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_KEY }}
         shell: pwsh
         run: |
-          Install-PackageProvider -Name NuGet -force | Out-Null
+          Get-PackageProvider | Where-Object Name -eq 'nuget' | Install-PackageProvider -Force
           Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
           Publish-Module -Path "./$($env:GITHUB_REPOSITORY.Split('/')[1])" -NuGetApiKey $env:NUGET_KEY -Verbose
