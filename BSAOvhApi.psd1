@@ -133,7 +133,7 @@
 			ProjectUri = 'https://github.com/b-sarrazin/BSAOvhApi'
 
 			# A URL to an icon representing this module.
-			# IconUri = ''
+			IconUri = 'https://raw.githubusercontent.com/b-sarrazin/BSAOvhApi/main/logo.png'
 
 			# ReleaseNotes of this module
 			ReleaseNotes = 'https://github.com/b-sarrazin/BSAOvhApi/releases'

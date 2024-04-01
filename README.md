@@ -41,10 +41,10 @@ Send-BSAOvhSms -ApplicationKey 'your_application_key' -ApplicationSecret 'your_a
 
 * **Brice Sarrazin** - *Initial work*
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details
-
 ## Acknowledgments
 
 * OVH API documentation: https://api.ovh.com/console/
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details
