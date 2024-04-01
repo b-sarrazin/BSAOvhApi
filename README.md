@@ -4,12 +4,20 @@ Module to interact with the OVH API
 
 ## Getting Started
 
+### OVH API Access
 Follow this link https://docs.ovh.com/gb/en/customer/first-steps-with-ovh-api/ to create an Application Key, Application Secret and get your Consumer Key.
 
 ### Prerequisites
 
 * Windows 7+ / Windows Server 2003+
 * PowerShell v3+
+
+### Installation
+
+You can install this module from the PowerShell Gallery.
+```powershell
+Install-Module -Name BSAOvhApi
+```
 
 ## Description
 
