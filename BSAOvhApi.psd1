@@ -34,7 +34,7 @@
 	RootModule = 'BSAOvhApi.psm1'
 
 	# Version number of this module.
-	ModuleVersion = '1.0.0.2'
+	ModuleVersion = '1.0.0.3'
 
 	# ID used to uniquely identify this module
 	GUID = '8c5a2606-6b9b-4085-b3e8-f580cda2787f'
@@ -127,7 +127,7 @@
 			Tags = @('OVH', 'API')
 
 			# A URL to the license for this module.
-			LicenseUri = 'https://github.com/b-sarrazin/BSAOvhApi/blob/main/LICENSE.md'
+			LicenseUri = 'https://github.com/b-sarrazin/BSAOvhApi/blob/main/LICENSE.txt'
 
 			# A URL to the main website for this project.
 			ProjectUri = 'https://github.com/b-sarrazin/BSAOvhApi'
