@@ -1,6 +1,6 @@
 # BSAOvhApi
 
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com) [![PowerShell Gallery](https://img.shields.io/powershellgallery/v/BSAOvhApi.svg)](https://www.powershellgallery.com/packages/BSAOvhApi) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+![Static Badge](https://img.shields.io/badge/made%20with-PowerShell-blue) [![PowerShell Gallery](https://img.shields.io/powershellgallery/v/BSAOvhApi.svg)](https://www.powershellgallery.com/packages/BSAOvhApi) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 Module to interact with the OVH API
 
