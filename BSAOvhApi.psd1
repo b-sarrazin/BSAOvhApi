@@ -34,7 +34,7 @@
 	RootModule = 'BSAOvhApi.psm1'
 
 	# Version number of this module.
-	ModuleVersion = '1.0.0.1'
+	ModuleVersion = '1.0.0.2'
 
 	# ID used to uniquely identify this module
 	GUID = '8c5a2606-6b9b-4085-b3e8-f580cda2787f'
