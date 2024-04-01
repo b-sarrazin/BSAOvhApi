@@ -3,8 +3,7 @@ name: Publish PowerShell Module
 on:
   release:
     types: [created]
-
-  # Allows you to run this workflow manually from the Actions tab
+    
   workflow_dispatch:
 
 jobs:
@@ -12,11 +11,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install PSScriptAnalyzer module
+        shell: pwsh
+        run: |
+          Get-PackageProvider | Where-Object Name -eq 'nuget' | Install-PackageProvider -Force
+          Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+          Install-Module PSScriptAnalyzer -ErrorAction Stop
+      - name: Lint with PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          Invoke-ScriptAnalyzer -Path *.ps1 -Recurse -Outvariable issues
+          $errors   = $issues.Where({$_.Severity -eq 'Error'})
+          $warnings = $issues.Where({$_.Severity -eq 'Warning'})
+          if ($errors) {
+              Write-Error "There were $($errors.Count) errors and $($warnings.Count) warnings total." -ErrorAction Stop
+          } else {
+              Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
+          }
       - name: Build and publish
         env:
           NUGET_KEY: ${{ secrets.NUGET_KEY }}
         shell: pwsh
         run: |
-          Get-PackageProvider | Where-Object Name -eq 'nuget' | Install-PackageProvider -Force
-          Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
           Publish-Module -Path .\ -NuGetApiKey $env:NUGET_KEY -Verbose
