@@ -34,7 +34,7 @@
 	RootModule = 'BSAOvhApi.psm1'
 
 	# Version number of this module.
-	ModuleVersion = '1.0.0.5'
+	ModuleVersion = '1.0.0.6'
 
 	# ID used to uniquely identify this module
 	GUID = '8c5a2606-6b9b-4085-b3e8-f580cda2787f'
@@ -49,7 +49,7 @@
 	Copyright = '(c) 2021. All rights reserved.'
 
 	# Description of the functionality provided by this module
-	Description = 'Module to interact with the OVH API'
+	Description = 'BSAOvhApi is a PowerShell module for the OVH API.'
 
 	# Minimum version of the Windows PowerShell engine required by this module
 	PowerShellVersion = '3.0'
