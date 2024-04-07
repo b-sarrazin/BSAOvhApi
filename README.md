@@ -4,7 +4,7 @@
 
 ![logo](logo.png)
 
-Module to interact with the OVH API
+BSAOvhApi is a PowerShell module for the OVH API.
 
 ## Description
 
