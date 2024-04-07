@@ -1,6 +1,6 @@
 ﻿<#	
 	.SYNOPSIS
-	Module to interact with the OVH API.
+	BSAOvhApi is a PowerShell module for the OVH API.
 
 	.DESCRIPTION
 	This module provides functionality to interact with the OVH API. It includes functions for sending and receiving SMS, making API requests, and retrieving account information.
