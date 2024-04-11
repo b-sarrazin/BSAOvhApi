@@ -2,7 +2,7 @@
 
 ![Static Badge](https://img.shields.io/badge/made%20with-PowerShell-blue) [![PowerShell Gallery](https://img.shields.io/powershellgallery/v/BSAOvhApi.svg)](https://www.powershellgallery.com/packages/BSAOvhApi) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![logo](logo.png)
+![logo](https://raw.githubusercontent.com/b-sarrazin/BSAOvhApi/main/logo.png)
 
 BSAOvhApi is a PowerShell module for the OVH API.
 
