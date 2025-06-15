@@ -73,16 +73,16 @@ function Remove-BSAOvhSms {
 		foreach ($Id in $SmsId) {
 			Write-Verbose -Message "Processing SMS $Id"
 			$properties.Path = "/sms/$ServiceName/outgoing/$Id"
-			$retry = 5
-			do {
-				$response = Invoke-BSAOvhApiRequest @properties
-				if ($null -eq $response) {
-					Write-Verbose "SMS id $Id deleted"
-					Continue
-				}
-				Write-Verbose -Message "response: $response"
-				$retry--
-			} until ($response.Class -ne 'Client::BadRequest' -and $retry -gt 0)
+                        $retry = 5
+                        do {
+                                $response = Invoke-BSAOvhApiRequest @properties
+                                if ($null -eq $response) {
+                                        Write-Verbose "SMS id $Id deleted"
+                                        break
+                                }
+                                Write-Verbose -Message "response: $response"
+                                $retry--
+                        } until ($response.Class -ne 'Client::BadRequest' -or $retry -le 0)
 		}
 
 		return $true
